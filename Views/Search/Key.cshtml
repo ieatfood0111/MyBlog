@@ -1,0 +1,41 @@
+﻿
+
+<ul id="listArc" class="list-unstyled result-bucket">
+
+    @if (ViewBag.listArticleSearch != null)
+    {
+        foreach (var item in @ViewBag.listArticleSearch)
+        {
+
+<li class="result-entry" data-suggestion="Target 1" data-position="1" data-type="type" data-analytics-type="merchant">
+    <a href="/Article/Detail/@item.ArticleID" class="result-link">
+        <div class="media">
+            <div class="media-left">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="media-body ml-5">
+                <h4 class="media-heading">@item.ArticleName</h4>
+                Posted by
+                <abbr href="/User/Detai?username=@item.Username">@item.Username</abbr>
+            </div>
+        </div>
+    </a>
+</li>
+ }
+}
+else
+{
+<li class="result-entry" data-suggestion="Target 1" data-position="1" data-type="type" data-analytics-type="merchant">
+    <a href="#" class="result-link">
+        <div class="media">
+            <div class="media-left">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="media-body">
+                <p>No Found Any Articles</p>
+            </div>
+        </div>
+    </a>
+</li>}
+
+</ul>

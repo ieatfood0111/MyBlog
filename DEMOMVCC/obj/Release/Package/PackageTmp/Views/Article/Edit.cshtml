@@ -1,0 +1,34 @@
+﻿@model DEMOMVCC.Models.Article
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<form action="/Article/AccessEdit/@Html.DisplayFor(model => model.ArticleID)" method="post">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input name="articleName" type="text" class="form-control" value="@Html.DisplayFor(model => model.ArticleName)">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Author</label>
+        <input name="articleAuthor" type="text" class="form-control" value="@Html.DisplayFor(model => model.ArticleAuthor)">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Categories</label>
+        <select name="catergorie" class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Novel">Novel</option>
+            <option value="Drama">Drama</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+        <textarea name="articleContent" class="form-control" id="exampleFormControlTextarea1" rows="3">
+            @Html.DisplayFor(model => model.ArticleContent)
+        </textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

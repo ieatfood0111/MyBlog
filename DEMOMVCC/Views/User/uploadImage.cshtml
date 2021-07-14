@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "uploadImage";
+}
+
+
+<h1>The input accept attribute</h1>
+
+<form id="avatar">
+    <label for="img">Select image:</label>
+    <input type="file" id="img" name="img" accept="image/*" onchange="readURL(this);">
+    <input type="submit">
+</form>
+
+<img style="width:200px" id="blah" src="http://placehold.it/180" alt="your image" />
+
+
+
+<script src="~/Scripts/jsController/UpImage.js">
+
+</script>
+
+

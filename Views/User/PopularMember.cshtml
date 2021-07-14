@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "PopularMember";
+}
+
+<h2>Followe</h2>
+<div class="row">
+    @if (@ViewBag.Following != null) { 
+        foreach (var item in @ViewBag.Following)
+        {
+            <div class="d-flex align-items-center col-md-4 mb-4">
+                <div class="image"> <img src="@item.LinkAvatar" class="rounded" width="155"> </div>
+                <div class="ml-3 w-100">
+                    <h4 class="mb-0 mt-0"><a href="/User/Detail?username=@item.Username">@item.Username</a></h4>
+                    <span>@item.Name</span>
+                </div>
+            </div>
+             }
+    }
+</div>

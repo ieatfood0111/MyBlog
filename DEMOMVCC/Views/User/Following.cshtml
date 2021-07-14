@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Following";
+}
+
+<h2>Followe</h2>
+<div class="row">
+    @if (@ViewBag.Following != null) { 
+        foreach (var item in @ViewBag.Following)
+        {
+    <div class="d-flex align-items-center col-md-4 mb-4">
+        <div class="image mr-10"> <img src="@item.LinkAvatar" class="rounded smaller-size" width="155"> </div>
+        <div class="ml-3 w-100">
+            <h4 class="mb-0 mt-0"><a href="/User/Detail?username=@item.Username">@item.Username</a></h4>
+            <span>@item.Name</span>
+            <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+                <div class="d-flex flex-column"> <span class="articles text-center">Articles</span> <span class="number1">@item.ArticlesNumber</span> </div>
+                <div class="d-flex flex-column"> <span class="followers text-center">Followers</span> <span class="number2">@item.model.Follower</span> </div>
+                <div class="d-flex flex-column"> <span class="rating text-center">Like</span> <span class="number3">@item.LikeNumber</span> </div>
+            </div>
+        </div>
+       
+    </div>
+             }
+    }
+</div>

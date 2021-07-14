@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="data">
+
+    @if (@ViewBag.listArticleSearch != null)
+    {
+        foreach (var item in @ViewBag.listArticleSearch)
+        {
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <a href="/Article/Detail/@item.ArticleID">
+                            <h2 class="post-title">@item.ArticleName</h2>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="/User/Detail?username=@item.Username">@item.Username</a> on @item.CreatedTime
+                        </p>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4">
+
+                </div>
+            </div>
+        }
+
+
+
+    }
+
+    @{
+        int pageUp = 0;
+        int pageDown = 0;
+        if (@ViewBag.listArticleSearch != null) {
+            pageUp = @ViewBag.value + 1;
+            pageDown = @ViewBag.value - 1;
+        }
+    }
+    <div class="text-right">
+        @if (@ViewBag.number <= 1)
+        {
+
+        }
+        else if (@ViewBag.value == 1)
+        {
+            <button id="nextBtn" onclick="page(@pageUp,'@ViewBag.keyword')" class="btn btn-secondary">Next</button>
+        }
+        else if (@ViewBag.value == @ViewBag.number)
+        {
+            <button id="nextBtn" onclick="page(@pageDown,'@ViewBag.keyword')" class="btn btn-secondary">Previous</button>
+        }
+        else if (@ViewBag.value > 1)
+        {<button id="nextBtn" onclick="page(@pageDown,'@ViewBag.keyword')" class="btn btn-secondary">Previous</button>
+            <button id="nextBtn" onclick="page(@pageUp,'@ViewBag.keyword')" class="btn btn-secondary">Next</button>
+        }
+    </div>
+
+</div>
+
+
+
+
+
+

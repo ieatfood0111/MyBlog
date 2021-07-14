@@ -1,0 +1,97 @@
+﻿<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="/">My Blog</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link px-lg-3 py-3 py-lg-4" href="/Article/ListArticleByLike/1">Hot</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-lg-3 py-3 py-lg-4" href="/Article/ListArticleNewest/1">New</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-lg-3 py-3 py-lg-4" href="/User/PopularMember">Popular Member</a>
+                </li>
+
+
+
+
+                @{ string username = (string)Session["USER_LOGIN_NAME"];
+                    int role = 0;
+                    if (Session["USER_LOGIN"] != null)
+                    {
+                        role = (int)Session["USER_LOGIN"];
+                    }
+                } 
+                
+                @if (@username == null)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="/Home/Login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="/Home/Logout">Logout</a>
+                    </li>
+                }
+                else
+                {
+
+                    <li class="nav-item dropdown my-auto">
+                        <a class="nav-link dropdown-toggle" href="/User/Detail?username=@username" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            @username
+                        </a>
+                        <ul class="dropdown-menu  " aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/User/Detail?username=@username">Me</a></li>
+                            @if (@role == 1)
+                            {
+                                <li><a class="dropdown-item" href="/Article/VerifyArticle">Check</a></li>
+                            }
+                            <li><a class="dropdown-item" href="/Article/ListArticle">My Articles</a></li>
+                            <li><a class="dropdown-item" href="/User/LikedArticles/1">My Favourite</a></li>
+                            <li><a class="dropdown-item" href="/User/Following">My Followings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="nav-link" href="/Home/Logout">Logout</a></li>
+                        </ul>
+                    </li>
+                }
+                <!-- <li class="nav-item">
+                    <a class="nav-link px-lg-3 py-3 py-lg-4" href="/Article/VerifyArticle">Check</a>
+                </li> -->
+
+                <li class="nav-item">
+                    <a class="nav-link px-lg-3 py-3 py-lg-4" href="/Article/Upload">Upload</a>
+                </li>
+
+            </ul>
+            <div class="search-bar-custom">
+
+                <form class="d-flex" id="searchForm" data-url="/Search/Index/1?keyword=" autocomplete="off">
+                    <input data-url="/Search/Key?keyword=" id="searchInput" class="form-control me-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <div class="instant-results">
+                    <ul id="listArc" class="list-unstyled result-bucket">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<header class="masthead" style="background-image: url('/assets/img/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>My Blog</h1>
+                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

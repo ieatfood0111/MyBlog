@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "UploadArticle";
+}
+
+<h2>UploadArticle</h2>
+<!--<form id="uploadForm" action="/Article/AccessUpload" method="post">
+    -->
+<form id="uploadForm" action="">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input name="articleName" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Author</label>
+        <input name="articleAuthor" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Categories</label>
+        <select id="catergorie" name="catergorie" class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Novel">Novel</option>
+            <option value="Drama">Drama</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+        <!-- <textarea name="articleContent" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
+        <div id="textarea" contenteditable></div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<p id="demo"></p>
+
+<script src="~/Scripts/jsController/upload.js"></script>

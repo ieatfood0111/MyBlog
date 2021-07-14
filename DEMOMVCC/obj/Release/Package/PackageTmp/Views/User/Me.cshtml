@@ -1,0 +1,51 @@
+﻿@model DEMOMVCC.Models.User
+
+@{
+    ViewBag.Title = "Me";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Me</h2>
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card p-3">
+        <div class="d-flex align-items-center">
+            <div class="image mr-10"> <img src="@Html.DisplayFor(model => model.LinkAvatar)" class="rounded" width="155"> </div>
+            <div class="ml-3 w-100">
+                <h4 class="mb-0 mt-0">@Html.DisplayFor(model => model.Username)</h4> <span>@Html.DisplayFor(model => model.Name)</span>
+                <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+                    <div class="d-flex flex-column"> <span class="articles">Articles</span> <span class="number1">@Html.DisplayFor(model => model.ArticlesNumber)</span> </div>
+                    <div class="d-flex flex-column"> <span class="followers">Followers</span> <span class="number2">@Html.DisplayFor(model => model.Follower)</span> </div>
+                    <div class="d-flex flex-column"> <span class="rating">Like</span> <span class="number3">@Html.DisplayFor(model => model.LikeNumber)</span> </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+        <!-- Post preview-->
+        @if (@ViewBag.listArticle != null)
+        {
+            foreach (var item in @ViewBag.listArticle)
+            {
+                <div class="post-preview">
+                    <a href="/Article/Detail/@item.ArticleID">
+                        <h2 class="post-title">@item.ArticleName</h2>
+                    </a>
+                    <p class="post-meta">
+                        Posted by
+                        <a href="/User/Detail?username=@item.Username">@item.Username</a> on @item.CreatedTime
+                    </p>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4">
+            }
+        }
+    </div>
+</div>
+
+

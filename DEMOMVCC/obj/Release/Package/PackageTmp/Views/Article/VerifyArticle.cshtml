@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "VerifyArticle";
+}
+
+<h2>VertifyArticle</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Like Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (@ViewBag.listArticle != null)
+        {
+            foreach (var item in @ViewBag.listArticle)
+            {
+                <tr>               
+                    <td>
+                        <a href="/Article/DetailArticle/@item.ArticleID">@item.ArticleName</a>
+                    </td>
+                    <td>@item.CreatedTime</td>
+                    <td>@item.LikeNumber</td>
+                    <td>
+                        <a href="/Article/AccessVerifyArticle/@item.ArticleID">Upload</a>
+                        <a href="/Article/DeleteArticle/@item.ArticleID">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
