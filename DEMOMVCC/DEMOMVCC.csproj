@@ -254,6 +254,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jsController\avatarScript.js" />
     <Content Include="Scripts\jsController\DataURl.js" />
     <Content Include="Scripts\jsController\Decode.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -265,6 +266,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jsController\modalChange.js" />
     <Content Include="Scripts\jsController\Search.js" />
     <Content Include="Scripts\jsController\UpImage.js" />
     <Content Include="Scripts\jsController\upload.js" />

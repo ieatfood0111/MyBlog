@@ -54,6 +54,7 @@ namespace DEMOMVCC.DAO
             SqlConnection conn = DBConnection.GetDBConnection();
             List<Article> la = null;
             conn.Open();
+       
             try
             {
                 SqlCommand cmd = conn.CreateCommand();
@@ -100,6 +101,9 @@ namespace DEMOMVCC.DAO
             SqlConnection conn = DBConnection.GetDBConnection();
             List<Article> la = null;
             conn.Open();
+            DataSet dt = new DataSet();
+            SqlDataAdapter dAdapt = new SqlDataAdapter("Select * From article", conn);
+            dAdapt.Fill(dt, "ơ địt");
             try
             {
                 SqlCommand cmd = conn.CreateCommand();

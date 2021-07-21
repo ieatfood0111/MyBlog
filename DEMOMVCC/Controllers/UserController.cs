@@ -128,9 +128,24 @@ namespace DEMOMVCC.Controllers
             return View();
         }
 
-        public ActionResult ChangeAvatar()
+        public JsonResult ChangeAvatar(string code)
         {
-            return View();
+            if (code == null)
+            {
+                return Json(new
+                {
+                    check = false,
+                });
+            }
+            string username = (string)Session["USER_LOGIN_NAME"];
+            string codeaf = code.Substring(code.IndexOf(',') + 1);
+            byte[] data = Convert.FromBase64String(codeaf);
+            Boolean check= ud.updateAvatar(data, username);
+            return Json(new
+            {
+                check = check,           
+                code = code
+            }) ;
         }
     }
 }

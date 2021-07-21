@@ -480,5 +480,32 @@ namespace DEMOMVCC.DAO
                 conn = null;
             }
         }
+        public Boolean updateAvatar(byte[] data, string username)
+        {
+            string sql = "UPDATE [user] SET avatar = @data WHERE username = @username";
+            SqlConnection conn = DBConnection.GetDBConnection();
+            conn.Open();
+            try
+            {
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = sql;
+                cmd.Parameters.Add("@username", SqlDbType.VarChar, 50).Value = username;
+                cmd.Parameters.Add("@data", SqlDbType.VarBinary).Value = data;
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e);
+                Console.WriteLine(e.StackTrace);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+                conn.Dispose();
+                conn = null;
+            }
+        }
     }
 }
